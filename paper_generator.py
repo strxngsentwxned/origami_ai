@@ -27,6 +27,7 @@ def plot_creases_pattern(df):
         plt.title('generated paper with pattern')
         plt.grid(True)
         plt.savefig('paper_pattern.png')
+        plt.show()
 
 pattern_df = gen_paper_base()
 print(pattern_df)
