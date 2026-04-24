@@ -31,3 +31,19 @@ def plot_creases_pattern(df):
 pattern_df = gen_paper_base()
 print(pattern_df)
 plot_creases_pattern(pattern_df)
+
+#generate noise
+def gen_noisy_pattern(noise_level = 0.02):
+    creases = [
+        [0,0,1,1,1],
+        [1,0,0,1,1],
+        [0,0.5,1,0.5,-1]
+    ]
+
+    noisy_creases = []
+    for crease in creases:
+        noisy_line = [coord + np.random.normal(0, noise_level) for coord in crease[:4]]
+        noisy_line.append(crease[4])  
+        noisy_creases.append(noisy_line)
+
+    return pd.DataFrame(noisy_creases, columns=['x1','y1','x2','y2','type'])
