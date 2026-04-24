@@ -1,6 +1,6 @@
 import numpy as np 
 import pandas as pd 
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 def gen_paper_base():
     paper_corners = np.array([[0,0],[1,0],[0,1],[1,1]])
@@ -16,10 +16,10 @@ def gen_paper_base():
 def plot_creases_pattern(df):
     plt.figure(figsize=(5,5))
 
-    for _, row in df.iterRows():
-        color = 'red' if row['type'] == 1 else blue
+    for _, row in df.iterrows():
+        color = 'red' if row['type'] == 1 else 'blue'
         style = '-' if row['type'] == 1 else '--'
-        plt.plot([row['x1'], row['x2'], row['y1'], row['y2']],
+        plt.plot([row['x1'], row['x2']], [row['y1'], row['y2']],
         color = color, linestyle = style, lw=2)
 
         plt.xlim(-0.1, 1.1)
