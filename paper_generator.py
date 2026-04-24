@@ -19,15 +19,15 @@ def plot_creases_pattern(df):
     for _, row in df.iterRows():
         color = 'red' if row['type'] == 1 else blue
         style = '-' if row['type'] == 1 else '--'
-        plt.plot([row['x1'], row['x2'], row['y1'], rpw['y2']],
+        plt.plot([row['x1'], row['x2'], row['y1'], row['y2']],
         color = color, linestyle = style, lw=2)
 
         plt.xlim(-0.1, 1.1)
         plt.ylim(-0.1, 1.1)
-        plt.title('generated paper with patter')
+        plt.title('generated paper with pattern')
         plt.grid(True)
         plt.show()
 
-pattern_df = gen_paper_base
+pattern_df = gen_paper_base()
 print(pattern_df)
 plot_creases_pattern(pattern_df)
